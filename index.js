@@ -1,11 +1,13 @@
 const express = require('express');
 const app=express();
+const morgan = require('morgan');
 
 //miidleware  
-app.use((req,res,next) =>{
-    console.log('Middleware passing with different rendered page')
-    next()
-})
+//app.use((req,res,next) =>{
+//    console.log('Middleware passing with different rendered page')
+ //   next()
+//})
+app.use(morgan('dev'))
 
 //spcifiy the path
 app.get('/',(req, res)=>{
