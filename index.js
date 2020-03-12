@@ -10,9 +10,28 @@ const mongoose = require('mongoose');
 //})
 app.use(morgan('dev'))
 
+const  myPersions =[
+    {
+        id:1,
+        name:'Sundaram C',
+        age:45
+    },
+    {
+        id:2,
+        name:'Vijayalakshmi S',
+        age:26
+    },
+    {
+        id:3,
+        name:'Jai Amirthesh S',
+        age:3
+    }
+
+]
+
 //spcifiy the path
 app.get('/',(req, res)=>{
-res.json('This is first Express Page ')
+res.status(200).json(myPersions)
 })
 
 app.get('/about',(req, res)=>{
@@ -25,7 +44,7 @@ app.listen('2000',()=>{
 })
 
 //db server crreation
-//mongoose.set(useNewUrlParser= true)
+//mongoose.set(useNewUrlParser, true)
 mongoose.connect('mongodb://localhost:27017/person',
 {useNewUrlParser: true,useUnifiedTopology: true },
 (err)=>{
