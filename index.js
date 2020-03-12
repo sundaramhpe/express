@@ -1,7 +1,7 @@
 const express = require('express');
 const app=express();
 const morgan = require('morgan');
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 //miidleware  
 //app.use((req,res,next) =>{
@@ -26,7 +26,9 @@ app.listen('2000',()=>{
 
 //db server crreation
 //mongoose.set(useNewUrlParser= true)
-//mongoose.connect('mongodb://localhost:27017/person',(err)=>{
- //  if(err) {console.log('Db not connected') }
- //  console.log('DB connected ') 
-//});
+mongoose.connect('mongodb://localhost:27017/person',
+{useNewUrlParser: true,useUnifiedTopology: true },
+(err)=>{
+   if(err) {console.log('Db not connected') }
+   console.log('DB connected ') 
+});
